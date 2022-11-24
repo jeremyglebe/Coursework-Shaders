@@ -6,12 +6,25 @@ const three = new THREE.WebGLRenderer();
 const scene = new THREE.Scene();
 // Create a camera
 const camera = new THREE.OrthographicCamera(0, 1, 1, 0, 0.1, 1000);
+// Uniforms representing two colors
+// These are the colors from the homework (regarding brightness of yellow)
+const u_color_1 = { value: new THREE.Vector4(1, 0, 0, 1) };
+const u_color_2 = { value: new THREE.Vector4(0, 1, 0, 1) };
+// These are the colors from the end of the lesson
+// const u_color_1 = { value: new THREE.Vector4(1, 1, 0, 1) };
+// const u_color_2 = { value: new THREE.Vector4(0, 1, 1, 1) };
+// Create a uniform which multiplies the final lerp result
+const u_post_lerp_multiplier = { value: 1 };
 // Initialize the app
 init();
 
 async function init() {
     // Add the renderer to the document body
     document.body.appendChild(three.domElement);
+    // Get the element with id "multiplier" from the document
+    const multiplier = document.querySelector('#multiplier');
+    // Add an event listener for changes to the multiplier input
+    multiplier.addEventListener('input', changePostLerpMultiplier);
     // Set the camera position
     camera.position.set(0, 0, 1);
     // Load the shaders
@@ -19,7 +32,7 @@ async function init() {
     const fragment_shader = await fetch('./shaders/fragment-shader.glsl');
     // Create a material
     const material = new THREE.ShaderMaterial({
-        uniforms: {},
+        uniforms: { color1: u_color_1, color2: u_color_2, post_lerp: u_post_lerp_multiplier },
         vertexShader: await vertex_shader.text(),
         fragmentShader: await fragment_shader.text()
     });
@@ -46,4 +59,13 @@ function tick() {
         three.render(scene, camera);
         tick();
     });
+}
+
+function changePostLerpMultiplier(e) {
+    // Get the element with id "multiplier-text" from the document
+    const multiplierText = document.querySelector('#multiplier-text');
+    // Set the text of the multiplier text element to the value of the multiplier input
+    multiplierText.textContent = e.target.value;
+    // Set the post lerp multiplier to the value of the multiplier input
+    u_post_lerp_multiplier.value = e.target.value;
 }
