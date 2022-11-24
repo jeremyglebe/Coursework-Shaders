@@ -4,5 +4,5 @@
 
 | Program                                                | Lesson                                      |
 | ------------------------------------------------------ | ------------------------------------------- |
-| [RGB Colors](./section-2/simple-colors-hw/)            | [Section 2](/Coursework-Shaders/section-2/) |
-| [Varyings](/Coursework-Shaders/section-2/varyings-hw/) | [Section 2](/Coursework-Shaders/section-2/) |
+| [RGB Colors](./section-2/simple-colors-hw/)            | [Section 2](./section-2/) |
+| [Varyings](./section-2/varyings-hw/) | [Section 2](./section-2/) |
