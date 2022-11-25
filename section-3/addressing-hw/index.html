@@ -1,0 +1,46 @@
+<head>
+    <title>2.1 Homework - RGB</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        p {
+            background-color: whitesmoke;
+            text-align: center;
+            font-size: 24px;
+            width: 500px;
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./script.js" type="module"></script>
+    <p>
+        <!-- Control (slider) to set coordinate multiplier -->
+        <nobr>UV Coordinate Multiplier</nobr><br />
+        <input type="range" id="multiplier" min="-10" max="10" value="1" step=".5"><br />
+        <nobr id="mtext">1.0</nobr>
+    </p>
+    <!-- Controls to set texture wrapping mode -->
+    <div style="position: absolute; bottom: 102px; left: 20px; padding: 10px; background-color: whitesmoke;">
+        <label for="wrapS">Wrap S</label>
+        <select id="wrapS">
+            <option value="Repeat">Repeat</option>
+            <option value="Mirror">Mirrored Repeat</option>
+            <option value="Clamp">Clamp to Edge</option>
+        </select>
+        <label for="wrapT">Wrap T</label>
+        <select id="wrapT">
+            <option value="Repeat">Repeat</option>
+            <option value="Mirror">Mirrored Repeat</option>
+            <option value="Clamp">Clamp to Edge</option>
+        </select>
+    </div>
+</body>
