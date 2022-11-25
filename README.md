@@ -9,3 +9,4 @@
 | [Uniforms](./section-2/uniforms-hw/)        | [Section 2](./section-2/) |
 | [Textures](./section-3/textures-hw/)        | [Section 3](./section-3/) |
 | [Addressing](./section-3/addressing-hw/)    | [Section 3](./section-3/) |
+| [Sine](./section-5/sin-hw/)                 | [Section 5](./section-5/) |
