@@ -40,6 +40,8 @@ void main() {
   // Uncomment to visualize the normal
   // color = normal;
 
+  // Approximate gamma correction
+  color = pow(color, vec3(1.0/2.2));
   // Finalize the resulting color
   gl_FragColor = vec4(color, 1.0);
 }
